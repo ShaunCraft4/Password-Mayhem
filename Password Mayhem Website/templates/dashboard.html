@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding: 20px;
+            transition: background-color 0.3s ease;
+        }
+        h1 {
+            color: #4a90e2;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #4a90e2;
+            font-size: 2.0em;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2em;
+        }
+        nav a, nav button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        nav a:hover, nav button:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Mayhem</h1>
+    <h2>DashBoard</h2>
+    <h3>Your Stored Passwords</h3>
+    {% if passwords %}
+        <ul>
+            {% for site, pwd in passwords.items() %}
+                <li><strong>{{ site }}:</strong> {{ pwd }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No passwords stored yet!</p>
+    {% endif %}
+
+    <nav>
+        <a href="{{ url_for('check_password') }}">Check Password Validity</a>
+        <a href="{{ url_for('generate_password') }}">Generate Password</a>
+        <a href="{{ url_for('add_password') }}">Add Password</a>
+        <a href="{{ url_for('update_password') }}">Update Password</a>
+        <a href="{{ url_for('delete_password') }}">Delete Password</a>
+        <a href="{{ url_for('logout') }}">Log Out</a>
+        <form action="{{ url_for('delete_account') }}" method="post" style="display:inline;">
+            <button onclick="return confirm('Are you sure you want to delete your account?');">Delete Account</button>
+        </form>
+    </nav>
+</body>
+</html>
+

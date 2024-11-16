@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - Password Mayhem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            transition: background-color 0.3s ease;
+        }
+        h1 {
+            color: #4a90e2;
+            font-size: 2.5em;
+        }
+        p, label, input {
+            font-size: 1.2em;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            font-size: 1em;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ABD;
+        }
+        .flash {
+            color: red;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Mayhem - Sign Up</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="flash">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="post">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br>
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br>
+        <label>
+            <input type="checkbox" name="proceed" value="Y">
+            Proceed with weak password
+        </label><br><br>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Mayhem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #4a90e2;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        a {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #4a90e2;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Mayhem</h1>
+    <p>Your one-stop application for managing passwords securely!</p>
+    <a href="{{ url_for('signup') }}">Sign Up</a> |
+    <a href="{{ url_for('login') }}">Log In</a>
+</body>
+</html>
