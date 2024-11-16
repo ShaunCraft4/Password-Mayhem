@@ -4,3 +4,5 @@ Please note that for the code to run properly, you have to store the entire thin
 Then just open the "Password Mayhem.py" file with your Python interpreter (Would heavily and I mean HEAVILY suggest using VSCode for this) to use it!
 
 Please note that you might need to install a few modules for the code to work. For this purpose please use the pip install command in the python console.
+
+
